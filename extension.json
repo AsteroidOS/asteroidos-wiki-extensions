@@ -39,7 +39,7 @@
   },
   "ResourceFileModulePaths": {
     "localBasePath": "modules",
-    "remoteExtPath": "ArchLinux/modules"
+    "remoteExtPath": "AsteroidOS/modules"
   },
   "ConfigRegistry": {
     "archlinux": "GlobalVarConfig::newInstance"
