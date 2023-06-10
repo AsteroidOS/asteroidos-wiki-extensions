@@ -10,7 +10,7 @@ namespace MediaWiki\Extensions\ArchLinux;
  * @var string $archNavBarSelectedDefault
  */
 ?>
-<div id="archnavbar" class="noprint mw-no-invert">
+<div id="archnavbar" class="noprint mw-no-invert mw-page-container">
     <div id="archnavbarlogo">
         <p><a id="logo" href="<?= $archHome ?>"></a></p>
     </div>

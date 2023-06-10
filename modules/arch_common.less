@@ -7,11 +7,28 @@
 /* general styling */
 body {
     background: @body-background-color;
+    color: #333333;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.sidebar-toc {
+   background-color: #F7F7F7;
+}
+
+.sidebar-toc::after {
+   background: none !important;
+}
+
+.sidebar-toc .sidebar-toc-link {
+   color: #555555;
 }
 
 #content {
     background: @content-background-color;
     border: @content-border-style;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
     table,
     h1,
