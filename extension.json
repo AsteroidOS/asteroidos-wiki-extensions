@@ -20,7 +20,7 @@
     ]
   },
   "ResourceModules": {
-    "zzz.ext.AsteroidOS.styles": {
+    "zzz.ext.AsteroidOS.scripts": {
       "targets": [
         "mobile",
         "desktop"
@@ -30,6 +30,12 @@
         "js/bootstrap.min.js",
         "js/holder.min.js",
         "js/application.js"
+      ]
+    },
+    "zzz.ext.AsteroidOS.styles": {
+      "targets": [
+        "mobile",
+        "desktop"
       ],
       "styles": [
         "index.less",

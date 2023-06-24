@@ -9,6 +9,7 @@ class Hooks
     public static function onBeforePageDisplay(\OutputPage &$outputPage, \Skin &$skin)
     {
         $outputPage->addModuleStyles('zzz.ext.AsteroidOS.styles');
+        $outputPage->addModules('zzz.ext.AsteroidOS.scripts');
     }
 
     public static function onAfterFinalPageOutput(\OutputPage $outputPage)
