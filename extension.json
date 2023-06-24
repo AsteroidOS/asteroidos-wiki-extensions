@@ -1,33 +1,34 @@
 {
-  "name": "ArchLinux",
+  "name": "AsteroidOS",
   "author": [
+    "Darrel Griët",
     "Pierre Schmitz"
   ],
-  "url": "https://www.archlinux.org",
-  "description": "Arch Linux navigation and styles",
+  "url": "https://asteroidos.org/",
+  "description": "AsteroidOS navigation and styles",
   "license-name": "GPL-2.0+",
   "type": "skin",
   "AutoloadClasses": {
-    "MediaWiki\\Extensions\\ArchLinux\\Hooks": "ArchLinux.hooks.php"
+    "MediaWiki\\Extensions\\AsteroidOS\\Hooks": "AsteroidOS.hooks.php"
   },
   "Hooks": {
     "BeforePageDisplay": [
-      "MediaWiki\\Extensions\\ArchLinux\\Hooks::onBeforePageDisplay"
+      "MediaWiki\\Extensions\\AsteroidOS\\Hooks::onBeforePageDisplay"
     ],
     "AfterFinalPageOutput": [
-      "MediaWiki\\Extensions\\ArchLinux\\Hooks::onAfterFinalPageOutput"
+      "MediaWiki\\Extensions\\AsteroidOS\\Hooks::onAfterFinalPageOutput"
     ]
   },
   "ResourceModules": {
-    "zzz.ext.archLinux.styles": {
+    "zzz.ext.AsteroidOS.styles": {
       "targets": [
         "mobile",
         "desktop"
       ],
       "styles": [
-        "archnavbar/archnavbar.less",
-        "archnavbar/responsive.less",
-        "arch_common.less"
+        "aosnavbar/aosnavbar.less",
+        "aosnavbar/responsive.less",
+        "aos_common.less"
       ],
       "skinStyles": {
         "vector": "skins/vector.less",
@@ -42,19 +43,19 @@
     "remoteExtPath": "AsteroidOS/modules"
   },
   "ConfigRegistry": {
-    "archlinux": "GlobalVarConfig::newInstance"
+    "asteroidos": "GlobalVarConfig::newInstance"
   },
   "config": {
-    "ArchNavBar": {
+    "AOSNavBar": {
       "value": []
     },
-    "ArchHome": {
+    "AOSHome": {
       "value": ""
     },
-    "ArchNavBarSelected": {
+    "AOSNavBarSelected": {
       "value": []
     },
-    "ArchNavBarSelectedDefault": {
+    "AOSNavBarSelectedDefault": {
       "value": ""
     }
   },

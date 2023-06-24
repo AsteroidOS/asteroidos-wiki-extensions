@@ -28,7 +28,7 @@ Change your `LocalSettings.php` file to include:
 ```
 $wgDefaultSkin = "vector-2022";
 
-$wgArchNavBar = [
+$wgAOSNavBar = [
         "Watches" => "https://asteroidos.org/watches/",
         "FAQ" => "https://asteroidos.org/faq/",
         "Documentation" => "https://wiki.asteroidos.org/",
@@ -37,7 +37,7 @@ $wgArchNavBar = [
         "Contact" => "https://asteroidos.org/contact/",
 ];
 
-$wgArchNavBarSelectedDefault = "Documentation";
+$wgAOSNavBarSelectedDefault = "Documentation";
 
 $wgVectorResponsive = true;
 
