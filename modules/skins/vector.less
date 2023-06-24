@@ -7,6 +7,7 @@
 }
 
 .mw-body {
+
   & h1,
   &-content h1,
   &-content h2 {
@@ -18,7 +19,8 @@ nav.vector-menu-tabs {
   padding-left: 0;
 
   // remove background with color gradient
-  ul, ul li {
+  ul,
+  ul li {
     background: none;
   }
 
@@ -60,6 +62,7 @@ body.skin-vector.skin--responsive {
 
 // Vector legacy and Vector 2022
 body.skin-vector {
+
   // Set background color
   div.mw-page-container {
     background-color: @body-background-color;
@@ -73,6 +76,7 @@ body.skin-vector {
 
 // Vector 2022
 body.skin-vector-2022 {
+
   // Set background color
   .vector-sticky-header {
     background: @body-background-color;
@@ -99,6 +103,7 @@ body.skin-vector-2022 {
   #vector-toc-collapsed-button {
     margin-left: 0;
   }
+
   #mw-panel-toc {
     left: auto;
   }
@@ -112,6 +117,7 @@ body.skin-vector-2022 {
 
 // Vector legacy
 body.skin-vector-legacy {
+
   div#mw-head,
   .mw-header {
     top: 65px;
@@ -127,11 +133,13 @@ body.skin-vector-legacy {
   }
 
   // fix vertical position of tabs
-  nav.vector-menu-tabs, nav.vector-menu {
+  nav.vector-menu-tabs,
+  nav.vector-menu {
     margin-top: -2 * @content-border-width;
   }
 
   nav.vector-menu-tabs {
+
     // Let the left border of the selected tab overlap with the vertical bar
     // coming from the background image of the previous tab.
     li:not(:first-child).selected {
@@ -139,7 +147,8 @@ body.skin-vector-legacy {
     }
   }
 
-  @media screen and ( max-width: @width-breakpoint-tablet ) {
+  @media screen and (max-width: @width-breakpoint-tablet ) {
+
     // fix position of personal navigation bar
     div#p-personal {
       top: unset;

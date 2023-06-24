@@ -18,15 +18,15 @@ body {
 }
 
 .sidebar-toc {
-   background-color: #F7F7F7;
+    background-color: #F7F7F7;
 }
 
 .sidebar-toc::after {
-   background: none !important;
+    background: none !important;
 }
 
 .sidebar-toc .sidebar-toc-link {
-   color: #555555;
+    color: #555555;
 }
 
 #content {
@@ -113,6 +113,7 @@ body {
 #wikiPreview > div.mw-content-rtl a {
     font-weight: bold;
 }
+
 #bodyContent #toc a,
 #bodyContent .special li > a,
 #bodyContent .special li span a,
@@ -122,47 +123,60 @@ body {
 
 /* Colors of links in the content, MediaWiki navigation and the footer */
 #content,
-header.mw-header li:not(.new), // Vector
-#mw-navigation li:not(.new),  // Legacy Vector
-#mw-panel li:not(.new),       // Legacy Vector
-#column-one li:not(.new),     // MonoBook
+// Vector
+header.mw-header li:not(.new),
+// Legacy Vector
+#mw-navigation li:not(.new),
+// Legacy Vector
+#mw-panel li:not(.new),
+// MonoBook
+#column-one li:not(.new),
 #footer {
-  a:not(.new) {
-    text-decoration: none;
-    color: @link-color-normal !important;
-  }
+    a:not(.new) {
+        text-decoration: none;
+        color: @link-color-normal !important;
+    }
 
-  a:not(.new):hover {
-    text-decoration: underline;
-    background-color: transparent;
-    color: @link-color-hover !important;
-  }
+    a:not(.new):hover {
+        text-decoration: underline;
+        background-color: transparent;
+        color: @link-color-hover !important;
+    }
 
-  a:active, a:focus,
-  /* a:hover overrides a:active, which we don't want' */
-  a:active:hover, a:focus:hover {
-    color: @link-color-active !important;
-  }
+    a:active,
+    a:focus,
+    /* a:hover overrides a:active, which we don't want' */
+    a:active:hover,
+    a:focus:hover {
+        color: @link-color-active !important;
+    }
 }
 
 /* Color of visited links for content and left column
  * (not for MediaWiki navigation elements above the page) */
 #content,
-#mw-panel li:not(.new),       // Legacy Vector
-#p-navigation li:not(.new),   // MonoBook
-#p-tb li:not(.new)            // MonoBook
-{
-  a:not(.new):visited {
-    color: @link-color-visited !important;
-  }
+// Legacy Vector
+#mw-panel li:not(.new),
+// MonoBook
+#p-navigation li:not(.new),
+// MonoBook
+#p-tb li:not(.new)
+
+    {
+    a:not(.new):visited {
+        color: @link-color-visited !important;
+    }
 }
 
 /* Color for links to inexistent pages */
 a.new,
 a.new:visited,
-#mw-navigation li.new a,         // Vector
-#mw-navigation li.new a:visited  // Vector
-{
+// Vector
+#mw-navigation li.new a,
+// Vector
+#mw-navigation li.new a:visited
+
+    {
     color: @link-color-new !important;
 }
 
