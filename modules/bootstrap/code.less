@@ -1,0 +1,51 @@
+//
+// Code (inline and blocK)
+// --------------------------------------------------
+
+
+// Inline and block code styles
+code,
+kbd,
+pre,
+samp {
+  font-family: @font-family-monospace;
+}
+
+// Inline code
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: @code-color;
+  background-color: @code-bg;
+  border-radius: @border-radius-base;
+}
+
+// Blocks of code
+pre {
+  display: block;
+  margin-right: 5px;
+  font-size: (@font-size-base); // 14px to 13px
+  line-height: @line-height-base;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: @pre-color;
+  background-color: @pre-bg;
+  border: 1px solid @pre-border-color;
+  border-radius: @border-radius-base;
+  overflow-x: auto; // Allow horizontal scrolling
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    padding: 12px 18px;
+    font-size: inherit;
+    color: inherit;
+    //white-space: pre; // Don't wrap text
+    border-radius: 0;
+  }
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: @pre-scrollable-max-height;
+  overflow-y: scroll;
+}

@@ -1,0 +1,146 @@
+//
+// Install Support Tables
+// --------------------------------------------------
+
+.support-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1024px;
+}
+
+th.rotated {
+    width: 3.5VW;
+    height: 40px;
+    white-space: nowrap;
+    transform: translateX(10px) rotate(-45deg);
+    text-align: center;
+}
+
+.support-col {
+  width: auto;
+  height: 25px;
+  max-width: 100%;
+  // Grow colums to fill entire width.
+  flex: 1 0 auto;
+  // Make font bold.
+  font-weight: 700;
+  // Add minimal gap between columns.
+  margin: 1px;
+  padding: 0 !important;
+  // for tooltips
+  position: relative;
+}
+
+.support-div {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.install-support-col {
+  //Make divs behave like text so they get centered
+  display: inline-block;
+
+  width: auto;
+  max-width: 100%;
+  // Make font bold.
+  font-weight: 700;
+  // Add gap between columns.
+  margin-right: 6px;
+  margin-left: 2px;
+  margin-bottom: 12px;
+
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  padding-right: 10px;
+  padding-left: 10px;
+  // for tooltips
+  position: relative;
+
+  border-radius: 5px;
+
+  .box-shadow(0 2px 2px rgba(0,0,0,.2));
+
+  @media (prefers-color-scheme: dark) {
+    color: black !important;
+  }
+}
+
+td.support-col {
+  min-width: 15px;
+}
+
+td.legend-col {
+  height: 25px;
+  width: 3.5VW;
+  min-width: 25px;
+  margin: 1px;
+}
+
+th {
+  min-width: 15px;
+  font-size: 0.9em;
+  margin: 1px;
+
+  @media (min-width: @grid-float-breakpoint) {
+    font-size: 1em;
+  }
+}
+
+.name-col {
+  min-width: 74px;
+}
+
+.good {
+  background-color: #57E510;
+}
+
+.unknown {
+  background-color: #1EDAEB;
+}
+
+.partial {
+  background-color: #FFAD33;
+}
+
+.bad {
+  background-color: #FD785D;
+}
+
+.na {
+  background-color: #8c8c8c;
+}
+
+
+.support-col .tooltiptext {
+    display: none;
+    width: 80px;
+    bottom: 70%;
+    left: 70%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+.install-support-col .tooltiptext {
+    display: none;
+    width: 80px;
+    bottom: 70%;
+    left: 70%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+.install-support-col:hover .tooltiptext {
+    display: inline;
+}

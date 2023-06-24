@@ -25,7 +25,14 @@
         "mobile",
         "desktop"
       ],
+      "scripts": [
+        "js/jquery-1.10.2.min.js",
+        "js/bootstrap.min.js",
+        "js/holder.min.js",
+        "js/application.js"
+      ],
       "styles": [
+        "index.less",
         "aosnavbar/aosnavbar.less",
         "aosnavbar/responsive.less",
         "aos_common.less"
