@@ -33,11 +33,6 @@
       $body.scrollspy('refresh')
     });
 
-    $('.docs-container [href=#]').click(function (e) {
-      e.preventDefault()
-    });
-
-
     $('.source-link').each(function () {
       var id = $(this).data('content');
       var content = $('<span>').append($('#' + id)).html();
