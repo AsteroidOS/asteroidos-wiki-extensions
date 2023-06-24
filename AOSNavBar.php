@@ -10,7 +10,7 @@ namespace MediaWiki\Extensions\AsteroidOS;
  * @var string $aosNavBarSelectedDefault
  */
 ?>
-<header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+<header class="navbar navbar-inverse docs-nav" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
