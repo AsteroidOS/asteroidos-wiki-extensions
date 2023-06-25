@@ -40,8 +40,7 @@
       "styles": [
         "index.less",
         "aosnavbar/aosnavbar.less",
-        "aosnavbar/responsive.less",
-        "aos_common.less"
+        "aosnavbar/responsive.less"
       ],
       "skinStyles": {
         "vector": "skins/vector.less",
