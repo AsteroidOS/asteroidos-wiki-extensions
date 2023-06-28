@@ -2,6 +2,29 @@
  * Adapted from Bootstrap docs JavaScript
  */
 
+$(document).ready(function() {
+  $('pre').wrap('<div class="install-code-wrapper"></div>');
+  $('.install-code-wrapper').append('<div class="clipboard-button-wrapper"></div>');
+  $('.clipboard-button-wrapper').append('<input type="button" class="btn btn-primary clipboard-button" value="&#10697;"></input>');
+  $(".clipboard-button").click(function() {
+    var codeContent = $(this).closest(".install-code-wrapper").find("pre").text();
+    copyToClipboard(codeContent);
+  });
+});
+
+function copyToClipboard(text) {
+  var temp = $("<input>");
+  $("body").append(temp);
+  temp.val(text).select();
+  document.execCommand("copy");
+  temp.remove();
+  $(document).click(function(event) {
+    if (event.target.value == "⧉") { event.target.value = "✔"; }
+    setTimeout( function() {
+      if (event.target.value == "✔") { event.target.value = "⧉"; }
+    }, 1000);
+  });
+}
 
 !function ($) {
 

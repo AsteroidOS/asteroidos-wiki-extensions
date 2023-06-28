@@ -104,9 +104,7 @@
 }
 
 .install-code-wrapper {
-  display: flex;
-  align-items: center;
-
+  position: relative;
 }
 
 .install-code-pre-wrapper {
@@ -130,18 +128,38 @@
   min-height: 36px;
   min-width: 42px;
   margin: 0 -20px 0 0;
-  border-radius: 0 4px 4px 0;
+  border-radius: 4px;
 
-    //Show clipboard button only while screen is larger than phone
+  //Show clipboard button only while screen is larger than phone
   @media (min-width: @screen-xs-min) {
     display: inline-block;
   }
 }
 
 .clipboard-button-wrapper {
-  display: none;
+  opacity: 0;
+  transition: 0.5s all ease;
 
   @media (min-width: @screen-xs-min) {
-    display: flex;
+    position: absolute;
+    top: 0;
+    left: -10px;
+  }
+}
+
+.install-code-wrapper:hover > .clipboard-button-wrapper {
+  @media (min-width: @screen-xs-min) {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+pre {
+  transition: 0.5s all ease;
+}
+
+.install-code-wrapper:hover > pre {
+  @media (min-width: @screen-xs-min) {
+    padding-left: 54px;
   }
 }
