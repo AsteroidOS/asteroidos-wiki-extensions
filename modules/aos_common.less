@@ -205,3 +205,16 @@ a.new:visited,
 .sidebar-toc .sidebar-toc-title {
     font-size: @font-size-base;
 }
+
+#mw-sidebar-button {
+	&:before {
+		background-image: url( images/chevronHorizontal.svg );
+        transform: rotate(0deg);
+        transition: 0.5s ease;
+
+		#mw-sidebar-checkbox:not( :checked ) ~ .mw-header & {
+		    background-image: url( images/chevronHorizontal.svg );
+            transform: rotate(180deg);
+		}
+	}
+}
