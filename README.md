@@ -8,7 +8,7 @@ This assumes you're using a `docker-compose.yml` solution!
 
 Clone this extension:
 ```
-git clone https://github.com/MagneFire/asteroidos-wiki-extensions.git
+git clone https://github.com/AsteroidOS/asteroidos-wiki-extensions.git
 ```
 
 Mount the extension using `docker-compose.yml`:
