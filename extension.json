@@ -17,6 +17,9 @@
     ],
     "AfterFinalPageOutput": [
       "MediaWiki\\Extensions\\AsteroidOS\\Hooks::onAfterFinalPageOutput"
+    ],
+    "SkinAddFooterLinks": [
+      "MediaWiki\\Extensions\\AsteroidOS\\Hooks::onSkinAddFooterLinks"
     ]
   },
   "ResourceModules": {
