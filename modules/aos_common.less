@@ -130,6 +130,15 @@
     #toc a {
         font-weight: normal;
     }
+
+    // Use the same icon for all external links
+    // The default MediaWiki style assigns icons only to external links and not
+    // interwiki links, so we use this to have an icon for all links pointing
+    // to external sites.
+    a.external, a.extiw {
+        background: url(../../../resources/src/mediawiki.skinning/images/external-ltr.svg) center right no-repeat;
+        padding-right: 13px;
+    }
 }
 
 .mw-sidebar-action {
@@ -193,17 +202,6 @@ a.new:visited,
 
     {
     color: @link-color-new !important;
-}
-
-/*
- * Use the same icon for all external links
- * The default MediaWiki style assigns icons only to external links and not interwiki links,
- * so we use this to have an icon for all links pointing to external sites.
- */
-.mw-body-content a.external,
-.mw-body-content a.extiw {
-    background: url(../../../resources/src/mediawiki.skinning/images/external-ltr.svg) center right no-repeat;
-    padding-right: 13px;
 }
 
 .vector-menu-tabs .mw-list-item > a {
