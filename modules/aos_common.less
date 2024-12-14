@@ -142,21 +142,22 @@ header.mw-header li:not(.new),
 // MonoBook
 #column-one li:not(.new),
 #footer {
-    a:not(.new):not([role=button]) {
+    a:not([role=button]) {
+      &:not(.new) {
         text-decoration: none;
         color: @link-color-normal !important;
-    }
-
-    a:not(.new):not([role=button]):hover {
-        text-decoration: underline;
-        background-color: transparent;
-        color: @link-color-hover !important;
-    }
-
-    a:active:not([role=button]), a:not([role=button]):focus,
-    /* a:hover overrides a:active, which we don't want' */
-    a:not([role=button]):active:hover, a:not([role=button]):focus:hover {
+        &:hover {
+          text-decoration: underline;
+          background-color: transparent;
+          color: @link-color-hover !important;
+        }
+      }
+  
+      &:active, &:focus,
+      /* a:hover overrides a:active, which we don't want' */
+      &:active:hover, &:focus:hover {
         color: @link-color-active !important;
+      }
     }
 }
 
