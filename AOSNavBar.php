@@ -4,9 +4,9 @@ namespace MediaWiki\Extensions\AsteroidOS;
 
 /**
  * @var string $title
- * @var array $aosNavBar
+ * @var array<string,string> $aosNavBar
  * @var string $aosHome
- * @var array $aosNavBarSelected
+ * @var string[] $aosNavBarSelected
  * @var string $aosNavBarSelectedDefault
  */
 ?>
