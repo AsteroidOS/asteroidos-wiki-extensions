@@ -129,6 +129,13 @@
   min-width: 42px;
   margin: 0 -20px 0 0;
   border-radius: 4px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
 
   //Show clipboard button only while screen is larger than phone
   @media (min-width: @screen-xs-min) {
@@ -138,7 +145,9 @@
 
 .clipboard-button-wrapper {
   opacity: 0;
-  transition: 0.5s all ease;
+  pointer-events: none;
+  transition: opacity 0.5s ease, left 0.5s ease;
+  z-index: 1;
 
   @media (min-width: @screen-xs-min) {
     position: absolute;
@@ -147,19 +156,11 @@
   }
 }
 
-.install-code-wrapper:hover > .clipboard-button-wrapper {
+.install-code-wrapper:hover > .clipboard-button-wrapper,
+.install-code-wrapper:focus-within > .clipboard-button-wrapper {
   @media (min-width: @screen-xs-min) {
     opacity: 1;
     left: 0;
-  }
-}
-
-pre {
-  transition: 0.5s all ease;
-}
-
-.install-code-wrapper:hover > pre {
-  @media (min-width: @screen-xs-min) {
-    padding-left: 54px;
+    pointer-events: auto;
   }
 }

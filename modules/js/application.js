@@ -3,27 +3,44 @@
  */
 
 $(document).ready(function() {
-  $('pre').wrap('<div class="install-code-wrapper"></div>');
-  $('.install-code-wrapper').append('<div class="aos-bootstrap-scope clipboard-button-wrapper"></div>');
+  $('pre').wrap('<div class="aos-bootstrap-scope"><div class="install-code-wrapper"></div></div>');
+  $('.install-code-wrapper').append('<div class="clipboard-button-wrapper"></div>');
   $('.clipboard-button-wrapper').append('<input type="button" class="btn btn-primary clipboard-button" value="&#10697;"></input>');
   $(".clipboard-button").click(function() {
+    var button = this;
     var codeContent = $(this).closest(".install-code-wrapper").find("pre").text();
-    copyToClipboard(codeContent);
+    copyToClipboard(codeContent).then(function() {
+      flashButton(button, "\u2714");
+    }, function() {
+      // Writing can be refused when the document is not focused or the
+      // permission is denied. Say so instead of leaving the button unchanged.
+      flashButton(button, "\u2717");
+    });
   });
 });
 
+function flashButton(button, glyph) {
+  button.value = glyph;
+  setTimeout(function() {
+    button.value = "\u29c9";
+  }, 1000);
+}
+
 function copyToClipboard(text) {
-  var temp = $("<input>");
+  if (navigator.clipboard) {
+    // Already a promise, and it rejects on failure.
+    return navigator.clipboard.writeText(text);
+  }
+
+  // Fallback for insecure contexts. Keep the textarea out of the flow so that
+  // select() does not scroll the article.
+  var temp = $("<textarea>").css({ position: "fixed", top: 0, opacity: 0 }).val(text);
   $("body").append(temp);
-  temp.val(text).select();
-  document.execCommand("copy");
+  temp[0].select();
+  var copied = document.execCommand("copy");
   temp.remove();
-  $(document).click(function(event) {
-    if (event.target.value == "⧉") { event.target.value = "✔"; }
-    setTimeout( function() {
-      if (event.target.value == "✔") { event.target.value = "⧉"; }
-    }, 1000);
-  });
+  var result = $.Deferred();
+  return copied ? result.resolve().promise() : result.reject().promise();
 }
 
 !function ($) {
