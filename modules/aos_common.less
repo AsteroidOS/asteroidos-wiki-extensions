@@ -28,6 +28,12 @@
   --aos-navbar-selected-color: light-dark(#000, #eaecf0);
 }
 
+body {
+    color: var(--aos-wiki-text-color);
+    background: @body-background-color;
+    font-family: @font-family-base;
+}
+
 // hide logo at the top (sidebar or header)
 #p-logo,
 .mw-logo {
@@ -103,7 +109,7 @@ body.skin-vector-2022 .vector-header-container .mw-header {
 }
 
 .sidebar-toc {
-    background-color: #F7F7F7;
+    background-color: @toc-background-color;
 }
 
 .sidebar-toc::after {
@@ -119,6 +125,7 @@ body.skin-vector-2022 .vector-header-container .mw-header {
 }
 
 #content {
+    color: var(--aos-wiki-text-color);
     background: @content-background-color;
     border: @content-border-style;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -133,7 +140,7 @@ body.skin-vector-2022 .vector-header-container .mw-header {
     pre,
     code,
     tt {
-        color: @text-color;
+        color: var(--aos-wiki-text-color);
     }
 
     ul {
