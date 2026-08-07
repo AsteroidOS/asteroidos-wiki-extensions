@@ -29,8 +29,7 @@
     }
   }
 
-  .navbar-nav > li > a, 
-  .navbar-nav > li > span {
+  .navbar-nav > li > a {
     font-family: "Archivo Narrow", sans-serif;
     font-size: 120%;
     margin-top: -1px;
@@ -40,10 +39,8 @@
       color: #666;
     }
   }
-  .navbar-nav > li > span:extend(.navbar-nav > li > a, .nav > li > a){}
-  
-  .navbar-nav > .active > a,
-  .navbar-nav > .active > span {
+
+  .navbar-nav > .active > a {
     &, &:hover {
       color: #000;
     }
@@ -59,13 +56,11 @@
 }
 
 .wf-loading {
-    .navbar-nav > li > a,
-    .navbar-nav > li > span {
+    .navbar-nav > li > a {
       opacity: 0;
   }
 }
 
-.ie.wf-loading .navbar-nav > li > a,
-.ie.wf-loading .navbar-nav > li > span {
+.ie.wf-loading .navbar-nav > li > a {
   visibility: hidden;
 }

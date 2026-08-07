@@ -10,6 +10,7 @@ namespace MediaWiki\Extensions\AsteroidOS;
  * @var string $aosNavBarSelectedDefault
  */
 ?>
+<div class="aos-bootstrap-scope">
 <header class="navbar navbar-inverse docs-nav" role="banner">
   <div class="container">
     <div class="navbar-header">
@@ -44,3 +45,4 @@ namespace MediaWiki\Extensions\AsteroidOS;
     </nav>
   </div>
 </header>
+</div>

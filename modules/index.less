@@ -19,6 +19,14 @@
 @import "bootstrap/mixins.less";
 
 
+// Keep the legacy Bootstrap/docs stack isolated from MediaWiki's own UI.
+.aos-bootstrap-scope {
+// Bootstrap sets these on <body>, now outside the scope. Colors stay with
+// MediaWiki so night mode keeps working.
+font-family: @font-family-base;
+font-size: @font-size-base;
+line-height: @line-height-base;
+
 // // Vendor
 @import "bootstrap/bootstrap.less";
 @import (less) "docs.css";
@@ -68,5 +76,6 @@
 // Utility Classes
 @import "bootstrap/utilities.less";
 @import "bootstrap/responsive-utilities.less";
+}
 
 @import "aos_common";

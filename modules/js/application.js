@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
   $('pre').wrap('<div class="install-code-wrapper"></div>');
-  $('.install-code-wrapper').append('<div class="clipboard-button-wrapper"></div>');
+  $('.install-code-wrapper').append('<div class="aos-bootstrap-scope clipboard-button-wrapper"></div>');
   $('.clipboard-button-wrapper').append('<input type="button" class="btn btn-primary clipboard-button" value="&#10697;"></input>');
   $(".clipboard-button").click(function() {
     var codeContent = $(this).closest(".install-code-wrapper").find("pre").text();
