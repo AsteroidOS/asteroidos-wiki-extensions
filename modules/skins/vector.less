@@ -121,18 +121,30 @@ body.skin-vector-2022 {
     margin-left: 0.9375rem;
   }
 
-  // Set background color
-  .vector-sticky-header {
-    background: @body-background-color;
+  // Keep the modern appearance rail, but do not paint the article card behind
+  // it. The first grid region is approximately the width of the legacy card.
+  #content {
+    position: relative;
+    isolation: isolate;
+    background: transparent;
+    box-shadow: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0 auto 0 0;
+      width: 100%;
+      background: var(--aos-wiki-content-background-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
   }
 
-  // Match the font used in page title
   .vector-sticky-header-context-bar-primary {
-    font-family: sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
   }
 
-  // keep padding as we are using a visual border
-  @media screen and (min-width: 1000px) {
+  @media screen {
     .mw-body {
       padding: clamp(1rem, 4vw, 3.6rem);
     }
@@ -162,7 +174,6 @@ body.skin-vector-2022 {
     }
   }
 
-  // Fix to not hide the login menu
   #p-personal.emptyPortlet {
     display: block;
   }
@@ -171,8 +182,9 @@ body.skin-vector-2022 {
     display: none;
   }
 
-  #mw-panel-toc {
-    left: auto;
+  #p-lang-btn.mw-portlet-empty {
+    display: block;
+    float: right;
   }
 
   .vector-page-titlebar > .mw-ui-button:last-child,
@@ -185,17 +197,114 @@ body.skin-vector-2022 {
       display: none;
     }
   }
+}
 
-  // Restore language links which disappeared in the Vector 2022 version 1.39
-  #p-lang-btn.mw-portlet-empty {
-    display: block;
-    float: right;
+// Vector only grids #content and shows the pinned rail from 1120px up. Widths
+// match Vector's @width-column-desktop (196px) and @grid-column-gap (24px).
+@media screen and (min-width: 70rem) {
+  // Align the wider grid with legacy Vector's start edge.
+  body.skin-vector-2022 .mw-page-container-inner {
+    --aos-page-grid-offset: clamp(0rem, calc(50vw - 42rem), 7.5rem);
+  }
+
+  html.vector-feature-appearance-pinned-clientpref-1 body.skin-vector-2022 .mw-content-container {
+    inset-inline-start: var(--aos-page-grid-offset);
+    position: relative;
+  }
+
+  // Transform the column so Safari moves its sticky children with it.
+  body.skin-vector-2022 .vector-column-start {
+    transform: translateX(var(--aos-page-grid-offset));
+  }
+
+  html[dir='rtl'] body.skin-vector-2022 .vector-column-start {
+    transform: translateX(calc(0rem - var(--aos-page-grid-offset)));
+  }
+
+  // Without the rail there is no grid to align to, so just centre the card.
+  // Must stay inside this breakpoint: below it Vector already fills the width.
+  html.vector-feature-appearance-pinned-clientpref-0 body.skin-vector-2022 .mw-content-container {
+    margin-inline: auto;
+    max-width: 52.5rem;
+    width: 100%;
+  }
+
+  html.vector-feature-appearance-pinned-clientpref-1 body.skin-vector-2022 .mw-content-container {
+    --aos-content-card-max-width: 52.5rem;
+    --aos-appearance-column-width: 12.25rem;
+    --aos-content-rail-gap: 1.5rem;
+
+    // Cap the column, not the track: space left over by a capped track would
+    // put the card under the rail.
+    margin-inline: auto;
+    max-width: calc(
+      var(--aos-content-card-max-width) + clamp(1rem, 4vw, 3.6rem) +
+      var(--aos-content-rail-gap) + var(--aos-appearance-column-width)
+    );
+  }
+
+  html.vector-feature-appearance-pinned-clientpref-1 body.skin-vector-2022 #content {
+    column-gap: calc(clamp(1rem, 4vw, 3.6rem) + var(--aos-content-rail-gap));
+    grid-template-columns: minmax(0, 1fr) var(--aos-appearance-column-width);
+
+    &::before {
+      width: calc(
+        100% - clamp(1rem, 4vw, 3.6rem) -
+        var(--aos-appearance-column-width) -
+        var(--aos-content-rail-gap)
+      );
+    }
+
+    .vector-column-end,
+    #vector-appearance-pinned-container {
+      box-sizing: border-box;
+      min-width: 0;
+      width: var(--aos-appearance-column-width);
+    }
   }
 }
 
-// Vector legacy
-body.skin-vector-legacy {
+@media screen and (min-width: 90rem) {
+  body.skin-vector-2022 .mw-page-container-inner {
+    --aos-start-column-width: 12.25rem;
+    --aos-page-grid-gap: 1.5rem;
+    --aos-docked-content-gutter: 2rem;
+  }
 
+  // Reserve the Contents button's row after the panel moves to the sidebar.
+  html.vector-toc-available.vector-feature-toc-pinned-clientpref-1 body.skin-vector-2022 .vector-page-titlebar {
+    min-height: 2rem;
+  }
+
+  // Keep a gutter beside the docked column without squeezing the article.
+  html.vector-feature-appearance-pinned-clientpref-1.vector-feature-main-menu-pinned-enabled body.skin-vector-2022 .mw-content-container,
+  html.vector-feature-appearance-pinned-clientpref-1.vector-toc-available.vector-feature-toc-pinned-clientpref-1 body.skin-vector-2022 .mw-content-container {
+    inset-inline-start: calc(
+      var(--aos-page-grid-offset) +
+      var(--aos-docked-content-gutter) - var(--aos-page-grid-gap)
+    );
+    margin-inline: 0 auto;
+    position: relative;
+  }
+
+  html.vector-feature-appearance-pinned-clientpref-0.vector-feature-main-menu-pinned-enabled body.skin-vector-2022 .mw-content-container,
+  html.vector-feature-appearance-pinned-clientpref-0.vector-toc-available.vector-feature-toc-pinned-clientpref-1 body.skin-vector-2022 .mw-content-container {
+    inset-inline-start: auto;
+    inset-inline-end: calc(
+      (var(--aos-start-column-width) + var(--aos-page-grid-gap)) / 2 -
+      var(--aos-docked-content-gutter)
+    );
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 105rem) {
+  body.skin-vector-2022 .mw-page-container-inner {
+    --aos-start-column-width: 15.5rem;
+  }
+}
+
+body.skin-vector-legacy {
   div#mw-head,
   .mw-header {
     top: 65px;
@@ -210,7 +319,6 @@ body.skin-vector-legacy {
     background: none;
   }
 
-  // fix vertical position of tabs
   nav.vector-menu-tabs,
   nav.vector-menu {
     margin-top: -2 * @content-border-width;
