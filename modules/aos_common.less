@@ -41,10 +41,10 @@
 }
 
 .mw-header {
-  &:extend(.container);
-}
-
-.mw-header {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1170px;
+    margin-inline: auto;
     padding-left: 2px;
     padding-right: 2px;
 }
@@ -52,6 +52,38 @@
 @media (min-width: @screen-sm-min) {
     .mw-header {
         padding: 8px 15px;
+    }
+}
+
+@media (min-width: @screen-sm-min) and (max-width: (@screen-md-min - 1)) {
+    .mw-header {
+        max-width: 750px;
+    }
+}
+
+@media (min-width: @screen-md-min) and (max-width: (@screen-lg-min - 1)) {
+    .mw-header {
+        max-width: 970px;
+    }
+}
+
+// Vector's `.vector-header-container .mw-header` outranks the rules above, so
+// repeat the navbar's container geometry at a specificity that wins.
+body.skin-vector-2022 .vector-header-container .mw-header {
+    max-width: @container-lg;
+    padding-left: (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+}
+
+@media (min-width: @screen-sm-min) and (max-width: (@screen-md-min - 1)) {
+    body.skin-vector-2022 .vector-header-container .mw-header {
+        max-width: @container-sm;
+    }
+}
+
+@media (min-width: @screen-md-min) and (max-width: (@screen-lg-min - 1)) {
+    body.skin-vector-2022 .vector-header-container .mw-header {
+        max-width: @container-md;
     }
 }
 
@@ -150,9 +182,20 @@
 #toc,
 .toc,
 .mw-warning,
-.toccolours {
+.toccolours,
+.vector-toc {
     background-color: @toc-background-color;
+}
+
+#toc,
+.toc,
+.mw-warning,
+.toccolours {
     border: @toc-border-style;
+}
+
+.vector-toc::after {
+    background: none !important;
 }
 
 body.skin-vector-2022 .vector-toc,
@@ -167,6 +210,28 @@ body.skin-vector-2022 #vector-page-titlebar-toc .vector-toc {
 
     .vector-toc-list-item-active > .vector-toc-link {
         color: var(--aos-wiki-toc-link-active-color) !important;
+    }
+}
+
+#vector-toc-pinned-container,
+#vector-page-titlebar-toc .vector-dropdown-content {
+    background-color: @toc-background-color;
+}
+
+#vector-main-menu-pinned-container,
+#vector-page-tools-pinned-container,
+#vector-appearance-pinned-container {
+    background-color: @body-background-color;
+}
+
+#vector-main-menu-pinned-container {
+    box-sizing: border-box;
+    margin-left: -27px;
+    width: 208px;
+
+    .vector-pinnable-header,
+    .vector-menu-content-list {
+        margin-left: 12px;
     }
 }
 

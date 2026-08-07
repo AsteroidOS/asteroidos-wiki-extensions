@@ -120,6 +120,19 @@ body.skin-vector {
 
 // Vector 2022
 body.skin-vector-2022 {
+  .vector-sticky-header,
+  .vector-header-container,
+  .vector-header {
+    background: var(--aos-wiki-body-background-color);
+  }
+
+  .vector-header {
+    min-width: unset;
+  }
+
+  .vector-main-menu-landmark {
+    margin-left: 0.9375rem;
+  }
 
   // Set background color
   .vector-sticky-header {
@@ -134,7 +147,31 @@ body.skin-vector-2022 {
   // keep padding as we are using a visual border
   @media screen and (min-width: 1000px) {
     .mw-body {
-      padding-left: 0.5em;
+      padding: clamp(1rem, 4vw, 3.6rem);
+    }
+
+    .mw-ui-icon-flush-left {
+      margin-left: 0;
+    }
+
+    .mw-ui-icon-flush-right {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 999px) {
+    .mw-page-container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .mw-body,
+    .mw-footer {
+      padding: 1rem;
+    }
+
+    .mw-content-container {
+      max-width: 100%;
     }
   }
 
@@ -143,39 +180,22 @@ body.skin-vector-2022 {
     display: block;
   }
 
-  // Align the TOC button and menu
-  #vector-toc-collapsed-button {
-    margin-left: 0;
+  .vector-toc .vector-toc-numb {
+    display: none;
   }
 
   #mw-panel-toc {
     left: auto;
   }
 
-  // Fix style and layout of main menu in the left sidebar
-  @media screen {
-    // NOTE: #vector-main-menu alone is not unique as of MW 1.40
-    #vector-main-menu.vector-main-menu {
-      background: @content-background-color;
-      border: @content-border-style;
-      width: auto;
-      margin-left: 0;
-      margin-top: 0;
-      margin-bottom: 1em;
-    }
+  .vector-page-titlebar > .mw-ui-button:last-child,
+  .vector-page-titlebar > .mw-portlet-lang:last-child {
+    margin-right: auto;
   }
-  // Fix layout of the TOC menu in the left sidebar
-  @media screen and (min-width: 1000px) {
-    // NOTE: #mw-panel-toc alone is not specific enough
-    #mw-panel-toc.mw-table-of-contents-container {
-      margin-left: 0;
-      #vector-toc-pinned-container {
-        margin-top: 0 !important;
-        border: @content-border-style;
-        .vector-toc, .vector-toc::after {
-          width: auto;
-        }
-      }
+
+  @media screen {
+    .vector-sticky-pinned-container::after {
+      display: none;
     }
   }
 
