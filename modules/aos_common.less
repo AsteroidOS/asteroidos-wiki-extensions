@@ -13,6 +13,8 @@
   --aos-wiki-toc-background-color: light-dark(#f7f7f7, #11151a);
   --aos-wiki-toc-border-style: 1px solid;
   --aos-wiki-toc-border-color: light-dark(#d7dfe3, #343a40);
+  --aos-wiki-toc-link-color: light-dark(#555, #c7c7c7);
+  --aos-wiki-toc-link-active-color: light-dark(#202122, #eaecf0);
   --aos-wiki-code-background-color: light-dark(#eee, #181c20);
   --aos-wiki-code-border-style: 1px solid;
   --aos-wiki-code-border-color: light-dark(#bcd, #384756);
@@ -76,7 +78,7 @@
 }
 
 .sidebar-toc .sidebar-toc-link {
-    color: #555555;
+    color: @link-color-normal;
 }
 
 #mw-sidebar-button {
@@ -152,6 +154,21 @@
     border: @toc-border-style;
 }
 
+body.skin-vector-2022 .vector-toc,
+body.skin-vector-2022 #vector-page-titlebar-toc .vector-toc {
+    .vector-toc-link,
+    .vector-toc-link:visited,
+    .vector-toc-link:hover,
+    .vector-toc-link:focus {
+        color: var(--aos-wiki-toc-link-color) !important;
+        text-decoration: none;
+    }
+
+    .vector-toc-list-item-active > .vector-toc-link {
+        color: var(--aos-wiki-toc-link-active-color) !important;
+    }
+}
+
 .mw-body-content {
     #toc a {
         font-weight: normal;
@@ -175,6 +192,9 @@
 #content,
 // Vector
 header.mw-header li:not(.new),
+// Vector 2022 movable menus
+body.skin-vector-2022 .vector-main-menu li:not(.new),
+body.skin-vector-2022 .vector-page-tools li:not(.new),
 // Legacy Vector
 #mw-navigation li:not(.new),
 // Legacy Vector
@@ -215,6 +235,16 @@ header.mw-header li:not(.new),
     {
     a:not(.new):not([role=button]):visited {
         color: @link-color-visited !important;
+    }
+}
+
+// Vector controls retain their interface color after being visited.
+body.skin-vector-2022 .vector-user-links,
+body.skin-vector-2022 .vector-page-toolbar,
+body.skin-vector-2022 .vector-main-menu,
+body.skin-vector-2022 .vector-page-tools {
+    a:not(.new):not([role=button]):visited {
+        color: @link-color-normal !important;
     }
 }
 
