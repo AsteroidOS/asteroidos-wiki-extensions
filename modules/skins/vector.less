@@ -2,12 +2,49 @@
 @import 'mediawiki.skin.variables';
 
 .mw-body {
-
   & h1,
   &-content h1,
-  &-content h2 {
-    font-family: sans-serif;
+  &-content h2,
+  &-content h3,
+  &-content h4,
+  &-content h5,
+  &-content h6 {
+    font-family: 'Archivo Narrow', sans-serif;
   }
+}
+
+body.skin-vector #firstHeading {
+  font-size: 2.275rem;
+  line-height: 1.3;
+}
+
+// MediaWiki 1.45 wraps headings in faux hgroup elements. Size the wrapper and
+// make its child inherit, otherwise percentage sizes compound to ~65px.
+body.skin-vector .mw-body-content {
+  .mw-heading1 { font-size: 2.714em; }
+  .mw-heading2 { font-size: 2.214em; }
+  .mw-heading3 { font-size: 1.714em; }
+  .mw-heading4 { font-size: 1.286em; }
+  .mw-heading5 { font-size: 1em; }
+  .mw-heading6 { font-size: 0.857em; }
+
+  .mw-heading1 h1,
+  .mw-heading2 h2,
+  .mw-heading3 h3,
+  .mw-heading4 h4,
+  .mw-heading5 h5,
+  .mw-heading6 h6 {
+    font-size: inherit;
+    line-height: 1.1;
+  }
+
+  // Compatibility with pre-1.45 output, which has no heading wrapper.
+  .mw-parser-output > h1 { font-size: 2.714em; }
+  .mw-parser-output > h2 { font-size: 2.214em; }
+  .mw-parser-output > h3 { font-size: 1.714em; }
+  .mw-parser-output > h4 { font-size: 1.286em; }
+  .mw-parser-output > h5 { font-size: 1em; }
+  .mw-parser-output > h6 { font-size: 0.857em; }
 }
 
 nav.vector-menu-tabs {
