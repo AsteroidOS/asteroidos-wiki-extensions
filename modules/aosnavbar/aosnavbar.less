@@ -89,3 +89,30 @@ html > body #aosnavbarlogo {
 li.anb-selected a {
     color: #000000 !important;
 }
+
+// Match Vector's selected appearance mode without changing the legacy navbar
+// structure or Bootstrap behavior.
+.aos-bootstrap-scope .docs-nav {
+    color: var(--aos-wiki-text-color);
+    background-color: var(--aos-wiki-body-background-color) !important;
+    border-color: var(--aos-wiki-body-background-color) !important;
+    font-size: 14px;
+    text-shadow: none;
+}
+
+.aos-bootstrap-scope .docs-nav .navbar-nav > li > a {
+    color: var(--aos-navbar-link-color) !important;
+}
+
+.aos-bootstrap-scope .docs-nav .navbar-nav > li > a:hover,
+.aos-bootstrap-scope .docs-nav .navbar-nav > li > a:focus {
+    color: var(--aos-navbar-link-hover-color) !important;
+}
+
+.aos-bootstrap-scope .docs-nav .navbar-nav > li.anb-selected > a {
+    color: var(--aos-navbar-selected-color) !important;
+}
+
+.aos-bootstrap-scope .docs-nav .navbar-toggle .icon-bar {
+    background-color: var(--aos-navbar-link-color);
+}

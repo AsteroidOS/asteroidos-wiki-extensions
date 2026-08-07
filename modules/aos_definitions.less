@@ -4,19 +4,20 @@
  * should be added to files present in the "styles" array in extension.json.
  */
 
-@body-background-color: #F7F7F7;
-@content-background-color: #FFFFFF;
+// Colors resolve to the --aos-* tokens defined in aos_common.less.
+@body-background-color: var(--aos-wiki-body-background-color);
+@content-background-color: var(--aos-wiki-content-background-color);
 @content-border-width: 1px;
 @content-border-style: none;
 @text-color: #333333;
-@code-background-color: #EEEEEE;
-@code-border-style: 1px solid #bcd;
-@toc-background-color: #F7F7F7;
-@toc-border-style: 1px solid #d7dfe3;
-@footer-text-color: #333;
+@code-background-color: var(--aos-wiki-code-background-color);
+@code-border-style: var(--aos-wiki-code-border-style) var(--aos-wiki-code-border-color);
+@toc-background-color: var(--aos-wiki-toc-background-color);
+@toc-border-style: var(--aos-wiki-toc-border-style) var(--aos-wiki-toc-border-color);
+@footer-text-color: var(--aos-wiki-text-color);
 
-@link-color-normal: #A0A0A0;
-@link-color-hover: #999;
-@link-color-active: #e90;
-@link-color-visited: #666;
-@link-color-new: #a0a0a0;
+@link-color-normal: var(--aos-wiki-link-color);
+@link-color-hover: var(--aos-wiki-link-hover-color);
+@link-color-active: var(--aos-wiki-link-active-color);
+@link-color-visited: var(--aos-wiki-link-visited-color);
+@link-color-new: var(--aos-wiki-link-new-color);

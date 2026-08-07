@@ -4,6 +4,28 @@
 
 @import 'aos_definitions';
 
+// Runtime tokens allow Vector's light/dark color scheme to switch without a
+// separate ResourceLoader bundle.
+:root {
+  --aos-wiki-body-background-color: light-dark(#f7f7f7, #11151a);
+  --aos-wiki-content-background-color: light-dark(#fff, #090909);
+  --aos-wiki-text-color: light-dark(#333, #eaecf0);
+  --aos-wiki-toc-background-color: light-dark(#f7f7f7, #11151a);
+  --aos-wiki-toc-border-style: 1px solid;
+  --aos-wiki-toc-border-color: light-dark(#d7dfe3, #343a40);
+  --aos-wiki-code-background-color: light-dark(#eee, #181c20);
+  --aos-wiki-code-border-style: 1px solid;
+  --aos-wiki-code-border-color: light-dark(#bcd, #384756);
+  --aos-wiki-link-color: light-dark(#a0a0a0, #c7c7c7);
+  --aos-wiki-link-hover-color: light-dark(#999, #fff);
+  --aos-wiki-link-active-color: light-dark(#e90, #ff9a3d);
+  --aos-wiki-link-visited-color: light-dark(#666, #c4adde);
+  --aos-wiki-link-new-color: light-dark(#a0a0a0, #ff9999);
+  --aos-navbar-link-color: light-dark(#999, #c7c7c7);
+  --aos-navbar-link-hover-color: light-dark(#666, #fff);
+  --aos-navbar-selected-color: light-dark(#000, #eaecf0);
+}
+
 // hide logo at the top (sidebar or header)
 #p-logo,
 .mw-logo {
