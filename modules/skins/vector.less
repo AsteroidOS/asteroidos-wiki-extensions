@@ -205,6 +205,9 @@ body.skin-vector-2022 {
   // Align the wider grid with legacy Vector's start edge.
   body.skin-vector-2022 .mw-page-container-inner {
     --aos-page-grid-offset: clamp(0rem, calc(50vw - 42rem), 7.5rem);
+    --aos-start-column-width: 12.25rem;
+    --aos-page-grid-gap: 1.5rem;
+    --aos-docked-content-gutter: 2rem;
   }
 
   html.vector-feature-appearance-pinned-clientpref-1 body.skin-vector-2022 .mw-content-container {
@@ -262,13 +265,14 @@ body.skin-vector-2022 {
       width: var(--aos-appearance-column-width);
     }
   }
-}
 
-@media screen and (min-width: 90rem) {
-  body.skin-vector-2022 .mw-page-container-inner {
-    --aos-start-column-width: 12.25rem;
-    --aos-page-grid-gap: 1.5rem;
-    --aos-docked-content-gutter: 2rem;
+  // Docking begins at this breakpoint, so the rules that shape the docked
+  // layout belong here rather than at Vector's desktop-wide breakpoint.
+
+  // Keep docked menus inside the page grid.
+  html.vector-feature-main-menu-pinned-enabled body.skin-vector-2022 .vector-column-start,
+  html.vector-toc-available.vector-feature-toc-pinned-clientpref-1 body.skin-vector-2022 .vector-column-start {
+    margin-inline-start: 0;
   }
 
   // Reserve the Contents button's row after the panel moves to the sidebar.
@@ -298,9 +302,12 @@ body.skin-vector-2022 {
   }
 }
 
+// Vector widens the docked column to 248px at @min-width-breakpoint-desktop-wide.
+// Hold it at @width-column-desktop so the grid does not jump.
 @media screen and (min-width: 105rem) {
-  body.skin-vector-2022 .mw-page-container-inner {
-    --aos-start-column-width: 15.5rem;
+  html.vector-feature-main-menu-pinned-enabled body.skin-vector-2022 .mw-page-container-inner,
+  html.vector-toc-available.vector-feature-toc-pinned-clientpref-1 body.skin-vector-2022 .mw-page-container-inner {
+    grid-template-columns: var(--aos-start-column-width) minmax(0, 1fr);
   }
 }
 
