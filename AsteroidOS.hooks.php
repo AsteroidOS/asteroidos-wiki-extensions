@@ -30,24 +30,29 @@ class Hooks
     public static function onSkinAddFooterLinks(\Skin $skin, string $key, array &$footerlinks)
     {
         if ($key === 'places') {
-            $linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-
-            $page_msg = $skin->msg('archwiki-code-of-conduct-page');
-            $desc_msg = $skin->msg('archwiki-code-of-conduct-desc');
-            if ($page_msg->exists() && $desc_msg->exists()) {
-                $link_target = Title::newFromText($page_msg->inContentLanguage()->text());
-                $link = $linkRenderer->makeLink($link_target, $desc_msg->text());
-                $footerlinks['archwiki-code-of-conduct'] = $link;
-            }
-
-            $page_msg = $skin->msg('archwiki-terms-of-service-page');
-            $desc_msg = $skin->msg('archwiki-terms-of-service-desc');
-            if ($page_msg->exists() && $desc_msg->exists()) {
-                $link_target = Title::newFromText($page_msg->inContentLanguage()->text());
-                $link = $linkRenderer->makeLink($link_target, $desc_msg->text());
-                $footerlinks['archwiki-terms-of-service'] = $link;
-            }
+            self::addFooterLink($skin, $footerlinks, 'asteroidos-code-of-conduct');
+            self::addFooterLink($skin, $footerlinks, 'asteroidos-terms-of-service');
         }
+    }
+
+    /**
+     * Add a footer link from the "<$id>-page" and "<$id>-desc" messages.
+     */
+    private static function addFooterLink(\Skin $skin, array &$footerlinks, string $id): void
+    {
+        $page_msg = $skin->msg("$id-page");
+        $desc_msg = $skin->msg("$id-desc");
+        if (!$page_msg->exists() || !$desc_msg->exists()) {
+            return;
+        }
+
+        $link_target = Title::newFromText($page_msg->inContentLanguage()->text());
+        if ($link_target === null) {
+            return;
+        }
+
+        $linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+        $footerlinks[$id] = $linkRenderer->makeLink($link_target, $desc_msg->text());
     }
 
     private static function geAOSNavBar(string $title): string
