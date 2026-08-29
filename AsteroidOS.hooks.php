@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\AsteroidOS;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 class Hooks
 {
@@ -25,6 +26,15 @@ class Hooks
         ob_start();
         echo $out;
         return true;
+    }
+
+    /** Hide the skin picker. $wgHiddenPrefs[] = 'skin' fatals the page (T341435). */
+    public static function onGetPreferences(User $user, array &$preferences)
+    {
+        if (isset($preferences['skin'])) {
+            $preferences['skin']['type'] = 'hidden';
+            $preferences['skin']['disabled'] = true;
+        }
     }
 
     public static function onSkinAddFooterLinks(\Skin $skin, string $key, array &$footerlinks)

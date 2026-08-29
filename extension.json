@@ -20,6 +20,9 @@
     ],
     "SkinAddFooterLinks": [
       "MediaWiki\\Extensions\\AsteroidOS\\Hooks::onSkinAddFooterLinks"
+    ],
+    "GetPreferences": [
+      "MediaWiki\\Extensions\\AsteroidOS\\Hooks::onGetPreferences"
     ]
   },
   "ResourceModules": {
