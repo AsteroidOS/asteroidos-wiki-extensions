@@ -100,7 +100,9 @@ body.skin-vector-2022 .vector-header-container .mw-header {
 }
 
 .mw-first-heading {
-    margin: -2.5vw 0 0 0;
+    // Preserve the original margin until the content padding caps, then keep
+    // the original 1.5vw inset instead of lifting the title indefinitely.
+    margin: ~"max(-2.5vw, calc(1.5vw - 3.6rem))" 0 0 0;
     font-family: 'Archivo Narrow', sans-serif;
 }
 
